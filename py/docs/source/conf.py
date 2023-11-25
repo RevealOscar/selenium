@@ -16,9 +16,9 @@
 # under the License.
 
 
-import sys
 import os
 import os.path
+import sys
 from version import SE_VERSION
 
 # If extensions (or modules to document with autodoc) are in another directory,

@@ -15,16 +15,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
-import sys
-
-import sys
-import os
-import os.path
-
-# Add the root directory of the project to sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-# Import the version from the project
 from version import SE_VERSION
 
 __version__ = SE_VERSION
