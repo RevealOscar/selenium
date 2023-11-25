@@ -28,9 +28,6 @@ import sys
 # I have to add parent_directory to sys.path
 # and then I can import SE_VERSION from py/version.py to py/selenium/__init__.py
 
-parent_directory = os.path.abspath("..")
-sys.path.append(parent_directory)
-
-from parent_directory.version import SE_VERSION
+from version import SE_VERSION
 
 __version__ = SE_VERSION
