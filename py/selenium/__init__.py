@@ -18,7 +18,19 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath(".."))
-from version import SE_VERSION
+# parent_directory = os.path.abspath("..")
+# sys.path.append(parent_directory)
+#
+# from parent_directory.version import SE_VERSION
+# path to version py/version.py
+# path to __init__.py py/selenium/__init__.py
+# I want to import SE_VERSION from py/version.py to py/selenium/__init__.py
+# I have to add parent_directory to sys.path
+# and then I can import SE_VERSION from py/version.py to py/selenium/__init__.py
+
+parent_directory = os.path.abspath("..")
+sys.path.append(parent_directory)
+
+from parent_directory.version import SE_VERSION
 
 __version__ = SE_VERSION
