@@ -15,6 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from ...version import SE_VERSION  # noqa
 from .chrome.options import Options as ChromeOptions  # noqa
 from .chrome.service import Service as ChromeService  # noqa
 from .chrome.webdriver import WebDriver as Chrome  # noqa
@@ -43,7 +44,6 @@ from .webkitgtk.webdriver import WebDriver as WebKitGTK  # noqa
 from .wpewebkit.options import Options as WPEWebKitOptions  # noqa
 from .wpewebkit.service import Service as WPEWebKitService  # noqa
 from .wpewebkit.webdriver import WebDriver as WPEWebKit  # noqa
-from ...version import SE_VERSION  # noqa
 
 __version__ = SE_VERSION
 
