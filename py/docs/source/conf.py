@@ -16,7 +16,7 @@
 # under the License.
 
 
-from ...version import SE_VERSION
+from py.version import SE_VERSION
 import sys
 import os
 import os.path
