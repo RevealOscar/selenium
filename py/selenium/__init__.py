@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from ..version import SE_VERSION
+import sys
 
+sys.path.insert(0, "...")
+
+from py.version import SE_VERSION
 __version__ = SE_VERSION
