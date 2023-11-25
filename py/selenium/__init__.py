@@ -17,7 +17,14 @@
 
 import sys
 
-sys.path.insert(0, "...")
+import sys
+import os
+import os.path
 
-from py.version import SE_VERSION
+# Add the root directory of the project to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# Import the version from the project
+from version import SE_VERSION
+
 __version__ = SE_VERSION

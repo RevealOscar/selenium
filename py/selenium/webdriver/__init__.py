@@ -15,7 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from ...version import SE_VERSION  # noqa
+# from ...version import SE_VERSION  # noqa
 from .chrome.options import Options as ChromeOptions  # noqa
 from .chrome.service import Service as ChromeService  # noqa
 from .chrome.webdriver import WebDriver as Chrome  # noqa
@@ -45,7 +45,7 @@ from .wpewebkit.options import Options as WPEWebKitOptions  # noqa
 from .wpewebkit.service import Service as WPEWebKitService  # noqa
 from .wpewebkit.webdriver import WebDriver as WPEWebKit  # noqa
 
-__version__ = SE_VERSION
+__version__ = "4.15.1"
 
 # We need an explicit __all__ because the above won't otherwise be exported.
 __all__ = [
