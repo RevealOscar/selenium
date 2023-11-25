@@ -15,5 +15,5 @@
 # specific language governing permissions and limitations
 # under the License.
 
-
-__version__ = "4.15.2"
+from ..version import SE_VERSION
+__version__ = SE_VERSION

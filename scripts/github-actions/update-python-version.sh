@@ -40,24 +40,24 @@ awk -v new_version="$NIGHTLY_VERSION" '/SE_VERSION =/ && !found { sub(/SE_VERSIO
 # Replace SE_VERSION in py/BUILD.bazel with nightly version
 awk -v new_version="$NIGHTLY_VERSION" '/SE_VERSION =/ && !found { sub(/SE_VERSION = "[0-9]+\.[0-9]+\.[0-9]+"/, "SE_VERSION = \"" new_version "\""); found = 1 } { print }' BUILD.bazel > tmp.txt && mv tmp.txt BUILD.bazel
 
-# Update version in conf.py with new version
+# Update version in docs/source/conf.py with new version
 awk -v new_version="$NIGHTLY_VERSION" '/version = / && !found { sub(/version = "[0-9]+\.[0-9]+\.[0-9]+"/, "version = \"" new_version"\""); found = 1 } { print }' docs/source/conf.py > tmp.txt && mv tmp.txt docs/source/conf.py
 
-# Update release in conf.py with new short version
+# Update release in docs/source/conf.py with new short version
 awk -v new_version="$NIGHTLY_VERSION" '/release = / && !found { sub(/release = "[0-9]+\.[0-9]+"/, "release = \"" new_version"\""); found = 1 } { print }' docs/source/conf.py > tmp.txt && mv tmp.txt docs/source/conf.py
 
-# Update __version__ in py/selenium/__init__.py with new version
-awk -v new_version="$NIGHTLY_VERSION" '/__version__ = / && !found { sub(/__version__ = "[0-9]+\.[0-9]+\.[0-9]+"/, "__version__ = \"" new_version"\""); found = 1 } { print }' selenium/__init__.py > tmp.txt && mv tmp.txt selenium/__init__.py
-
-# Update __version__ in py/selenium/webdriver/__init__.py with new version
-awk -v new_version="$NIGHTLY_VERSION" '/__version__ = / && !found { sub(/__version__ = "[0-9]+\.[0-9]+\.[0-9]+"/, "__version__ = \"" new_version"\""); found = 1 } { print }' selenium/webdriver/__init__.py > tmp.txt && mv tmp.txt selenium/webdriver/__init__.py
-
-# Update version in setup_args in setup.py with nightly version
-# example: 'version': "4.15.1",
-awk -v new_version="$NIGHTLY_VERSION" '/'\''version'\'': / && !found { sub(/'\''version'\'': "[0-9]+\.[0-9]+\.[0-9]+"/, "'\''version'\'': \"" new_version"\""); found = 1 } { print }' setup.py > tmp.txt && mv tmp.txt setup.py
+## Update __version__ in py/selenium/__init__.py with new version
+#awk -v new_version="$NIGHTLY_VERSION" '/__version__ = / && !found { sub(/__version__ = "[0-9]+\.[0-9]+\.[0-9]+"/, "__version__ = \"" new_version"\""); found = 1 } { print }' selenium/__init__.py > tmp.txt && mv tmp.txt selenium/__init__.py
+#
+## Update __version__ in py/selenium/webdriver/__init__.py with new version
+#awk -v new_version="$NIGHTLY_VERSION" '/__version__ = / && !found { sub(/__version__ = "[0-9]+\.[0-9]+\.[0-9]+"/, "__version__ = \"" new_version"\""); found = 1 } { print }' selenium/webdriver/__init__.py > tmp.txt && mv tmp.txt selenium/webdriver/__init__.py
+#
+## Update version in setup_args in setup.py with nightly version
+## example: 'version': "4.15.1",
+#awk -v new_version="$NIGHTLY_VERSION" '/'\''version'\'': / && !found { sub(/'\''version'\'': "[0-9]+\.[0-9]+\.[0-9]+"/, "'\''version'\'': \"" new_version"\""); found = 1 } { print }' setup.py > tmp.txt && mv tmp.txt setup.py
 
 # Replace selenium-#.#.#.tar.gz with selenium-RELEASE_VERSION.tar.gz in docs/source/index.rst
 awk -v new_version="$NIGHTLY_VERSION" '/selenium-[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz/ && !found { sub(/selenium-[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz/, "selenium-" new_version ".tar.gz"); found = 1 } { print }' docs/source/index.rst > tmp.txt && mv tmp.txt docs/source/index.rst
 
-# Set NEW_VERSION_EXTRAS for use in github actions
+# Set NIGHTLY_VERSION for use in github actions
 echo "NIGHTLY_VERSION=$NIGHTLY_VERSION" >> $GITHUB_ENV
