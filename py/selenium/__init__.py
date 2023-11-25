@@ -15,9 +15,10 @@
 # specific language governing permissions and limitations
 # under the License.
 
+import os
 import sys
 
-sys.path.append('..')
+sys.path.append(os.path.abspath(".."))
 from version import SE_VERSION
 
 __version__ = SE_VERSION
