@@ -16,6 +16,7 @@
 # under the License.
 
 import sys
+
 sys.path.append('..')
 from version import SE_VERSION
 
